@@ -39,10 +39,10 @@ export class EleccionesComponent implements OnInit {
 this.eleccionService.GetEleccion().subscribe(data =>{console.log(data)});
 
 
-    // this.eleccionService.findAll().subscribe(data => {
-    //   this.createTable(data);
-    //   console.log(data);
-    // });
+    this.eleccionService.findAll().subscribe(data => {
+      this.createTable(data);
+      console.log(data);
+    });
 
   }
   applyFilter(e: any) {
