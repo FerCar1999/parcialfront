@@ -14,10 +14,11 @@ export class EleccionesServiceService extends GenericService
   private eleccionChange = new Subject<Eleccion[]>;
   private messageChange = new Subject<string>;
 
+
   constructor(protected override http: HttpClient) {
     super(
       http,
-      `${environment.HOST}/Elecciones2019`
+      `${environment.HOST}/Elecciones2019/vista`
       );
   }
 
@@ -36,6 +37,10 @@ setMessageChange(message: string){
 
 getMessageChange(){
   return this.messageChange.asObservable();
+}
+
+GetEleccion() {
+  return this.http.get<Eleccion[]>(`${environment.HOST}/Elecciones2019/vista`);
 }
 
 }
